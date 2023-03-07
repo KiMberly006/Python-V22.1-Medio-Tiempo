@@ -1,0 +1,35 @@
+#face {
+  background-color: rgb(242, 242, 242);
+  height: 300px;
+  width: 300px;
+  border-radius: 50%;
+  border: 6px solid #000000;
+  position: relative;
+}
+
+#minutes, #hour, #seconds {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform-origin: top center;
+}
+
+#hour {
+  background-color: #000000;
+  width: 7px;
+  height: 100px;
+  transform: rotate(125deg);
+}
+
+#minutes {
+  background-color: rgb(133, 132, 132);
+  transform: rotate(255deg);
+  height: 120px;
+  width: 4px;
+}
+
+#seconds {
+  background-color: rgb(255, 22, 22);
+  height: 130px;
+  width: 1px;
+}
