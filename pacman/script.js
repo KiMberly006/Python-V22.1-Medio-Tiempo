@@ -1,28 +1,24 @@
-var world = [
-    [1,1,1,1,1,1,1,1,1],
-    [1,0,2,2,2,2,2,2,1],
-    [1,2,1,2,2,1,1,2,1],
-    [1,2,2,2,1,1,1,2,1],
-    [1,2,2,2,2,2,2,2,1],
-    [1,2,1,2,1,1,1,2,1],
-    [1,2,2,2,2,2,2,2,1],
-    [1,2,2,2,1,2,1,1,1],
-    [1,1,1,2,1,2,1,1,1],
-    [1,2,2,2,2,2,2,2,1],
-    [1,2,2,2,2,1,1,2,1],
-    [1,2,1,3,2,1,1,2,1],
-    [1,2,1,2,2,2,2,2,1],
-    [1,2,1,1,1,1,1,2,1],
-    [1,2,2,2,2,2,2,2,1],
-    [1,1,1,1,1,1,1,1,1],
-   
+
+    var world = [
+    [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+    [1,0,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1],
+    [1,2,2,2,2,1,1,2,2,2,2,1,1,1,1,1,2,1],
+    [1,1,1,1,1,1,1,2,1,1,2,1,2,2,1,1,2,1],
+    [1,2,2,2,2,2,2,2,2,2,2,1,2,2,2,2,2,1],
+    [1,2,1,2,1,1,1,1,1,1,2,1,1,1,1,1,1,1],
+    [1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1],
+    [1,2,2,2,1,2,1,1,1,1,1,1,1,1,1,2,2,1],
+    [1,1,1,2,1,2,1,1,2,2,2,2,2,2,1,2,2,1],
+    [1,2,2,2,2,2,2,2,2,2,1,1,2,2,1,2,2,1],
+    [1,2,2,2,2,1,1,2,2,2,2,2,2,2,2,2,2,1],
+    [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+
     
 ];
 var worldDict = {
     0: 'blank',
     1: 'wall' ,
     2: 'punto', 
-    3: 'fantasma',
 }
 
 function drawWorld(){
@@ -45,10 +41,12 @@ var pacman = {
     y: 1
 }
 
+
+
 function drawPacman(){
     document.getElementById('pacman').style.top = pacman.y * 40 + 'px'
     document.getElementById('pacman').style.left = pacman.x * 40 + 'px'
-   
+
 }
 drawPacman()
 
@@ -80,24 +78,15 @@ drawWorld()
 }
 
 
-function drawFantasma(){
-    document.getElementById('fantasma').style.top = fantasma.y*40+'px'
-    document.getElementById('fantasma').style.left = fantasma.x*40+'px'
-  }
-  drawFantasma();
+fantasma.onclick = function() {
+    let start = Date.now();
 
-  function moveFantasma(){
-    var move = random(-1,4);
-    if(move ===0 && (world[fantasma.y][fantasma.x-1] !==1)){//0 = left
-      fantasma.x--;
-    } 
-    else if(move ===1 && (world[fantasma.y][fantasma.x+1] !==1)){//1 = right
-      fantasma.x++;
-    }
-    else if(move ===2 && (world[fantasma.y-1][fantasma.x] !==1)){//2 = up
-    fantasma.y--;
-    }
-    else if(move ===3 && (world[fantasma.y+1][fantasma.x] !==1)){//3 = down
-    fantasma.y++;
-    }
-}
+    let timer = setInterval(function() {
+      let timePassed = Date.now() - start;
+
+      fantasma.style.left = timePassed / 5 + 'px';
+
+      if (timePassed > 2000) clearInterval(timer);
+
+    }, 20);
+  }
