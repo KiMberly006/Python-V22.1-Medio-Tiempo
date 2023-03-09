@@ -21,6 +21,16 @@
     
 }
 
+.fantasma{
+    background-color: rgb(0, 0, 0);
+    height: 40px;
+    width: 40px;
+    display: inline-block;
+    background-image: url("img/fantasma.gif");
+    background-size: contain;
+    
+}
+
 .cereza {
     background-color: rgb(0, 0, 0);
     height: 40px;
