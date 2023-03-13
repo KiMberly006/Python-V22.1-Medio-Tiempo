@@ -91,5 +91,17 @@ Bonus section
 
 
 
+print("¡Hola, mundo!")
+x = "Hola, Python"
+print(x)
+y = 42
+print(y)
+
+
+x = 10
+    if x > 50:
+    	print("mayor que 50")
+    else:
+    	print("menor que 50")
 
 
